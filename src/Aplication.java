@@ -996,6 +996,8 @@ public class Test {
             System.out.println("Nema jela u omiljenim");
             System.out.println("________________________________________");
           } else {
+            System.out.println("________________________________________");
+            System.out.println("Vasa omiljena jela su: ");
             int brojac = 1;
             for (Recipe recept : spisakOmiljenihRecepata){
               System.out.println(brojac + ". " + recept.getNazivRecepta());
@@ -1021,6 +1023,7 @@ public class Test {
 
         } else if (unos == 3) {
 
+          System.out.println("________________________________________");
           if (!spisakOmiljenihRecepata.isEmpty()){
             int brojac = 1;
             for (Recipe recept : spisakOmiljenihRecepata){
