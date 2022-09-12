@@ -1,7 +1,6 @@
-import javax.sound.midi.MidiFileFormat;
 import java.util.*;
 
-public class Test {
+public class Aplication {
   public static void main(String[] args) throws Exception {
 
     Scanner sc = new Scanner(System.in);
