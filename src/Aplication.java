@@ -24,7 +24,7 @@ public class Aplication {
     System.out.println("6. Pogledajte nivoe tezine recepata");
     System.out.println("7. Pogledajte jela sortirana po kompleksnosti sastojaka");
     System.out.println("8. Sortirajte recepte po ceni");
-    // 9. Комбинација 5. и 6. услова
+    System.out.println("9. Pogledajte koja sve jela mogu da se naprave za odredjenu cenu u sortiranom redosledu");
     System.out.println("10. Omiljeni recepti");
     System.out.println("___________________________________");
 
