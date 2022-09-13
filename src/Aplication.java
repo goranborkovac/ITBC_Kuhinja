@@ -42,7 +42,7 @@ public class Aplication {
         System.out.println("6. Pogledajte nivoe tezine recepata");
         System.out.println("7. Pogledajte jela sortirana po kompleksnosti sastojaka");
         System.out.println("8. Sortirajte recepte po ceni");
-        // 9. Комбинација 5. и 6. услова
+        System.out.println("9. Pogledajte koja jela mozete naruciti za odredjenu cenu i sortirajte ih");
         System.out.println("10. Omiljeni recepti");
         System.out.println("___________________________________");
         opcija = sc.nextInt();
@@ -849,6 +849,47 @@ public class Aplication {
             System.out.println("Uneli ste pogresnu opciju!" + '\n' + "Odaberite ponovo");
             opcija = 0;
           }
+        }
+
+      } else if (opcija == 9){
+
+        System.out.println("Unesite za koliko novca zelite da narucite jelo: ");
+        double novac = sc.nextDouble();
+        System.out.println("Prikaz jela po rastucem redosledu(od najmanje sastojaka ka najvise) za unetu cenu: ");
+        System.out.println("_________________________________");
+        double cenaRecepta = 0.0;
+        int brojac = 1;
+        List<Recipe> lista = new ArrayList<>();
+        for (Recipe recept : listaRecepata) {
+          cenaRecepta = recept.getPrice();
+          if (cenaRecepta < novac) {
+            // Rastuci
+            lista.add(recept);
+            Collections.sort(lista, new Comparator<Recipe>() {
+              @Override
+              public int compare(Recipe o1, Recipe o2) {
+                return Double.compare(o1.getNumberOfIngredients(), o2.getNumberOfIngredients());
+              }
+            });
+          }
+        }
+        for (Recipe noviRecept : lista){
+          System.out.println(brojac + ". " + noviRecept.getNazivRecepta());
+          brojac++;
+        }
+        System.out.println("_________________________________");
+        System.out.println("Da li zelite da ponovite radnju?");
+        System.out.println("1. Da");
+        System.out.println("2. Ne");
+        int unosNovca = sc.nextInt();
+
+        if (unosNovca == 1) {
+          opcija = 9;
+        } else if (unosNovca == 2){
+          opcija = 0;
+        } else {
+          System.out.println("Uneli ste pogresnu opciju!" + '\n' + "Odaberite ponovo");
+          opcija = 0;
         }
 
       } else if (opcija == 10) {
